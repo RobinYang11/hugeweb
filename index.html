@@ -1,25 +1,113 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" href="./assets/css/base.css">
 	<link rel="stylesheet" href="./assets/css/common.css">
 </head>
+
 <body>
-	<div class="top_nav">
-		<ul class="left_nav clearfix">
-			<li>位置</li>
-			<li>注册</li>
-			<li>首页</li>
-		</ul>
-		<ul class="right_nav clearfix">
-			<li>个人中心</li>
-			<li>帮助中心</li>
-			<li>收藏夾</li>
-		</ul>
+	<div class="top_nav clearfix">
+		<div class="container">
+			<ul class="fl left_nav clearfix">
+				<li class="lc">
+					<span class="ct">位置</span>
+					<div class="location clearfix">
+						<ul class="fl pro">
+
+						</ul>
+						<ul class="fl city">
+
+						</ul>
+					</div>
+				</li>
+				<li>注册</li>
+				<li>首页</li>
+			</ul>
+			<ul class="fr right_nav clearfix">
+				<li>个人中心</li>
+				<li>帮助中心</li>
+				<li>收藏夾</li>
+			</ul>
+		</div>
 	</div>
 	<header>
-		
+		<h1 class="robin">
+			click me
+		</h1>
 	</header>
+	<script src="./assets/js/data.js"></script>
 	<script src="./assets/robin.js" type="text/javascript"></script>
+	<script>
+
+		function test() {
+			console.log("test")
+		}
+		//locate funciton
+		(function () {
+			'use strict'
+			//global variable;
+			var cid = 0;
+
+			changePro(data, cid);
+			changeCity(data, cid)
+
+			function changePro(data, cid) {
+				var lc = document.querySelector(".location>.pro"),
+					html = '';
+				for (var i = 0; i < data.city.length; i++) {
+					if (i == cid) {
+						html += `<li class='active bb'>${data.city[i][0]}</li>`;
+					} else {
+						html += `<li >${data.city[i][0]}</li>`;
+					}
+				}
+				lc.innerHTML = html;
+			}
+
+			function changeCity(data, cid) {
+				var html2 = "";
+				for (var j = 1; j < data.city[cid].length; j++) {
+					html2 += `<li> ${data.city[cid][j]}</li>`
+				}
+				var city = document.querySelector(".location>.city");
+				city.innerHTML = html2;
+			}
+
+
+			var lies = document.querySelectorAll(".location>.pro>li");
+			lies.forEach((i, index) => {
+				i.addEventListener('click', (e) => {
+					for (var j in lies) {
+						r.removeClass(lies[j], "active");
+						changeCity(data, index);
+					}
+					e.target.className = "active";
+				})
+			})
+
+
+
+			r.delegate( ".city", "click", (e) => {
+				var ct = document.querySelector(".ct");
+				ct.innerHTML = e.target.innerHTML;
+			})
+
+			// var cts = document.querySelectorAll(".city>li");
+			// cts.forEach(function (v, i) {
+			// 	v.addEventListener('click', (e) => {
+			// 		var ct = document.querySelector(".ct");
+			// 		ct.innerHTML = e.target.innerHTML;
+			// 	})
+			// })   
+			// lc.addEventListener('click', () => {
+			// 	console.log("robin")
+			// })
+
+		})()
+	</script>
 </body>
+
 </html>
