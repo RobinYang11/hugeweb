@@ -68,3 +68,7 @@ li{
 .active{
     color:blueviolet;
 }
+
+.content{
+    display: none;
+}

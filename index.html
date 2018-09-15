@@ -34,9 +34,25 @@
 		</div>
 	</div>
 	<header>
-		<h1 class="robin">
-			click me
-		</h1>
+		<div class="container">
+			<a>
+				<img src="./assets/img/logo.png" alt="">
+			</a>
+			<ul>
+				<li>首页</li>
+				<li>产品</li>
+				<li>测试</li>
+			</ul>
+			<form action="">
+				<input type="text">
+				<button type="submit">search</button>
+			</form>
+			<ul>
+				<li>1</li>
+				<li>3</li>
+				<li>3</li>
+			</ul>
+		</div>
 	</header>
 	<script src="./assets/js/data.js"></script>
 	<script src="./assets/robin.js" type="text/javascript"></script>
@@ -87,13 +103,22 @@
 					e.target.className = "active";
 				})
 			})
-
-
-
-			r.delegate( ".city", "click", (e) => {
+			
+			r.delegate(".city", "click", (e) => {
 				var ct = document.querySelector(".ct");
 				ct.innerHTML = e.target.innerHTML;
 			})
+
+
+			// var hv=document.querySelector(".testHover");
+			// hv.addEventListener('mouseover',(e)=>{
+			// 	var content=document.querySelector(".content");
+			// 	content.style.display="block";
+			// })
+			// hv.addEventListener('mouseout',(e)=>{
+			// 	var content=document.querySelector(".content");
+			// 	content.style.display="none";
+			// })
 
 			// var cts = document.querySelectorAll(".city>li");
 			// cts.forEach(function (v, i) {
