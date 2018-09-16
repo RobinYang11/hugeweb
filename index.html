@@ -6,6 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<link rel="stylesheet" href="./assets/css/base.css">
 	<link rel="stylesheet" href="./assets/css/common.css">
+	<link rel="stylesheet" href="./assets/css/iconfont.css">
 </head>
 
 <body>
@@ -35,25 +36,104 @@
 	</div>
 	<header>
 		<div class="container">
-			<a>
-				<img src="./assets/img/logo.png" alt="">
-			</a>
-			<ul>
-				<li>首页</li>
-				<li>产品</li>
-				<li>测试</li>
-			</ul>
-			<form action="">
-				<input type="text">
-				<button type="submit">search</button>
-			</form>
-			<ul>
-				<li>1</li>
-				<li>3</li>
-				<li>3</li>
-			</ul>
+			<nav class="header-nav clearfix">
+				<a class="fl logo">
+					<svg class="icon lg" aria-hidden="true">
+						<use xlink:href="#icon-fire-fill"></use>
+					</svg>
+				</a>
+				<ul class="fl home-nav">
+					<li>首页</li>
+					<li>产品</li>
+					<li>测试</li>
+				</ul>
+				<form class="fl" action="">
+					<input type="text">
+				</form>
+				<ul class="fr person-nav">
+					<li>
+						<a href="#">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-user"></use>
+							</svg></a>
+					</li>
+					<li>
+						<a href="#">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-shopping"></use>
+							</svg></a>
+					</li>
+					<li>
+						<a href="#">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-cloud-download"></use>
+							</svg></a>
+					</li>
+				</ul>
+			</nav>
 		</div>
 	</header>
+	<div class="search-nav">
+
+		<!-- <a href="#">
+				<img src="./assets/img/log.gif" alt="">
+			</a> -->
+		<div class="container search-wrapper">
+			<form action="" class="search">
+				<fieldset>
+					<legend>用户登录</legend>
+					<div class="search-group">
+						<div class="search-input">
+							<input placeholder="搜索 入你要购买的商品名称"" type="text">
+						</div>
+						<button id="search">搜索</button>
+					</div>
+				</fieldset>
+			</form>
+			<ul class="buy-options clearfix fl-wrapper">
+				<li>内裤</li>
+				<li>牛仔裤</li>
+				<li>上衣</li>
+				<li>娃娃</li>
+				<li>vr一体机</li>
+			</ul>
+		</div>
+
+	</div>
+
+	<div id="nav-banner">
+		<ul class="banner">
+			<li><img src="./assets/img/timg (1).jpg" alt=""></li>
+			<li><img src="./assets/img/timg (2).jpg" alt=""></li>
+			<li><img src="./assets/img/timg (3).jpg" alt=""></li>
+			<li><img src="./assets/img/timg (4).jpg" alt=""></li>
+			<li><img src="./assets/img/timg.jpg" alt=""></li>
+		</ul>
+		<ul class="banner-btn fl-wrapper clearfix">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div class="container">
+			<ul class="fl-wrapper clearfix">
+				<li>秒杀</li>
+				<li>秒杀</li>
+				<li>秒杀</li>
+				<li>秒杀</li>
+				<li>秒杀</li>
+				<li>秒杀</li>
+				<li>秒杀</li>
+				<li>秒杀</li>
+			</ul>
+			<div>
+				轮播图
+			</div>
+		</div>
+	</div>
+
+	<script src="./assets/js/iconfont.js"></script>
 	<script src="./assets/js/data.js"></script>
 	<script src="./assets/robin.js" type="text/javascript"></script>
 	<script>
@@ -91,23 +171,56 @@
 				var city = document.querySelector(".location>.city");
 				city.innerHTML = html2;
 			}
-
-
 			var lies = document.querySelectorAll(".location>.pro>li");
 			lies.forEach((i, index) => {
 				i.addEventListener('click', (e) => {
-					for (var j in lies) {
-						r.removeClass(lies[j], "active");
+					Array.prototype.forEach.call(lies, (i) => {
+						r.removeClass(i, "active");
 						changeCity(data, index);
-					}
+					})
 					e.target.className = "active";
 				})
 			})
-			
+
 			r.delegate(".city", "click", (e) => {
 				var ct = document.querySelector(".ct");
 				ct.innerHTML = e.target.innerHTML;
 			})
+
+			var search_btn = document.querySelector("#search");
+			search_btn.addEventListener("click", (e) => {
+				e.preventDefault();
+				var search_text = document.querySelector(".search-input>input");
+				if (!search_text.value) {
+					r.addClass(search_text, "empty-warnning");
+					setTimeout(() => {
+						r.removeClass(search_text, "empty-warnning");
+					}, 500)
+				}
+			})
+
+			function search() {
+
+			}
+			
+			//轮播图
+			var banner_item=document.querySelectorAll(".banner>li"),
+				bannerIndex=0;
+			setInterval((b)=>{
+				Array.prototype.forEach.call(banner_item,(i,index)=>{
+					if(index===bannerIndex){
+						banner_item.forEach((i)=>{
+							i.style.zIndex=0;
+						})
+						i.style.zIndex=1;
+					}
+				});
+				if(bannerIndex>=banner_item.length){
+					bannerIndex=0;
+				}
+				bannerIndex++;
+			},2000)
+
 
 
 			// var hv=document.querySelector(".testHover");

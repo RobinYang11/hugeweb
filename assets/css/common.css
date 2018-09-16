@@ -4,14 +4,38 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
     margin:0;
     padding:0;
 }
-
+button{
+    margin: 0;
+}
+input,button{
+    outline: none;
+}
+::-webkit-input-placeholder{/*Webkit browsers*/
+    color:rgb(177, 175, 168);
+    font-size:16px;
+    font-size: 14px;
+}
 body{
-    background-color: #e3e3e3;
+  
+    font-size: 16px;
 }
 
 li{
     list-style: none;
 }
+a{
+    text-decoration: none;
+    color:white;
+}
+
+.icon {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+
 .fl{
     float: left;
 }
@@ -71,4 +95,140 @@ li{
 
 .content{
     display: none;
+}
+.home-nav>li,.person-nav>li{
+    float: left;
+    padding:0 10px;
+}
+.home-nav>li:hover{
+    background-color: #4f586d;
+}
+.logo{
+    display:block;
+    padding: 0 20px;
+}
+.logo>.lg{
+    width:2em;
+    height: 2em;
+    vertical-align: middle;
+}
+header{
+    height: 50px;
+    line-height: 50px;
+    background-color: #2b3140;
+    color:#d6d6d6;
+}
+
+header button[type="submit"]{
+    border-style: none;
+    border-radius: 5px;
+    background: none;
+    color: white;
+    border: 1px solid;
+    outline: none;
+    height: 26px;
+}
+
+header input[type='text']{
+    height: 26px;
+    border-radius: 5px;
+    outline: none;
+    border-style: none;
+    background: #4f586d;
+}
+fieldset{
+    border:0;
+}
+legend{
+    display: none;
+}
+
+.search-wrapper{
+    width: 625px;
+    margin:0 auto;
+}
+.search{
+    border:2px solid red;
+    margin-top: 20px;
+}
+.search-input input[type="text"]{
+    height: 36px;
+    width: 493px;
+    border:0;
+}
+.search button{
+    width: 130px;
+    height: 36px;
+    border:0;
+    background-color: red;
+    color:white;
+}
+.search-input{
+    display: inline-block;
+}
+
+.search-group{
+    position: relative;
+}
+
+.search-group>button{
+    position: absolute;
+    right: 0;
+}
+
+.fl-wrapper>li{
+    float: left;
+    padding:0 10px;
+}
+.buy-options>li{
+    border-right: 1px solid gray;
+    color:gray;
+    font-size: 13px;
+}
+.buy-options>li:first-child{
+    padding-left: 0;
+}
+.buy-options>li:last-child{
+    border:none;
+}
+.buy-options{
+    margin-top: 5px;
+}
+.buy-options>li:nth-child(odd){
+    color:red;
+}
+.empty-warnning{
+    
+    background-color:rgb(134, 112, 92);
+}
+
+#nav-banner{
+    height: 400px;
+    position: relative;
+}
+.banner{
+    width:100%;
+    position: relative;
+    
+}
+.banner>li{
+    text-align: center;
+    position: absolute;
+    top:0
+}
+.banner>li>img{
+    width: 100%;
+    
+}
+.banner-btn{
+    position: absolute;
+    z-index:10;
+    bottom:20px;
+   
+}
+.banner-btn>li{
+    height: 9px;
+    width: 20px;
+    margin: 0 20px;
+    background-color: red;
 }
