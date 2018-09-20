@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
-	<title></title>
+	<title>dd</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<link rel="stylesheet" href="./assets/css/base.css">
 	<link rel="stylesheet" href="./assets/css/common.css">
@@ -84,7 +84,7 @@
 					<legend>用户登录</legend>
 					<div class="search-group">
 						<div class="search-input">
-							<input placeholder="搜索 入你要购买的商品名称"" type="text">
+							<input placeholder="搜索 入你要购买的商品名称" type="text">
 						</div>
 						<button id="search">搜索</button>
 					</div>
@@ -100,151 +100,148 @@
 		</div>
 
 	</div>
+	<div class="buy-nav container">
+		<a class="nav-logo" href="#">
+			<img src="./assets/img/log.gif" alt="">
+		</a>
+		<ul class="nav-item fl-wrapper clearfix">
+			<li>秒杀</li>
+			<li>秒杀</li>
+			<li>秒杀</li>
+			<li>秒杀</li>
+			<li>秒杀</li>
+			<li>秒杀</li>
+			<li>秒杀</li>
+			<li>秒杀</li>
+		</ul>
+	</div>
 
 	<div id="nav-banner">
+		<ul class="left-nav">
+			<li data-index="1">家用电器</li>
+			<li data-index="2">手机/笔记本/台式机</li>
+			<li data-index="3">名酒/特长</li>
+			<li data-index="4">图书/电子书</li>
+			<li data-index="5">理财/保险</li>
+			<li data-index="6">母婴/玩具</li>
+			<li data-index="7">数码/科技vr</li>
+			<li data-index="8">男装/女装/童装</li>
+			<li data-index="9">户外/男鞋</li>
+			<li data-index="10">旅行/运动</li>
+			<li data-index="11">时尚/流行</li>
+			<li data-index="12">安装/维修</li>
+			<li data-index="13">javaweb/web前端</li>
+			<li data-index="14">python/tensorflow</li>
+			<li data-index="15">vue/angular/react</li>
+		</ul>
+		<div class="nav-menu">
+			<div >
+				1
+			</div>
+			<div >
+				2
+			</div>
+			<div>
+				3
+			</div>
+			<div>
+				23324
+			</div>
+			<div>
+				4
+			</div>
+			<div>
+				5
+			</div>
+			<div>
+				6
+			</div>
+			<div>
+				7
+			</div>
+			<div>
+				
+			</div>
+			<div>
+				
+			</div>
+		</div>
 		<ul class="banner">
-			<li><img src="./assets/img/timg (1).jpg" alt=""></li>
-			<li><img src="./assets/img/timg (2).jpg" alt=""></li>
-			<li><img src="./assets/img/timg (3).jpg" alt=""></li>
-			<li><img src="./assets/img/timg (4).jpg" alt=""></li>
-			<li><img src="./assets/img/timg.jpg" alt=""></li>
+			<li>
+				<div>
+					<a href="javacript:void(0);">
+						<img src="./assets/img/timg.jpg" alt="">
+					</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a href="javacript:void(0);">
+						<img src="./assets/img/timg1.jpg" alt="">
+					</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a href="javacript:void(0);">
+						<img src="./assets/img/timg2.jpg" alt="">
+					</a>
+				</div>
+			</li>
 		</ul>
 		<ul class="banner-btn fl-wrapper clearfix">
 			<li></li>
 			<li></li>
 			<li></li>
-			<li></li>
-			<li></li>
 		</ul>
-		<div class="container">
-			<ul class="fl-wrapper clearfix">
-				<li>秒杀</li>
-				<li>秒杀</li>
-				<li>秒杀</li>
-				<li>秒杀</li>
-				<li>秒杀</li>
-				<li>秒杀</li>
-				<li>秒杀</li>
-				<li>秒杀</li>
-			</ul>
-			<div>
-				轮播图
-			</div>
-		</div>
+
 	</div>
 
+
+	<div id="wrapper">
+		<div class="list">
+			<img src="./assets/img/1.jpg" alt="">
+			<img src="./assets/img/2.jpg" alt="">
+			<img src="./assets/img/3.jpg" alt="">
+			<img src="./assets/img/4.jpg" alt="">
+			<img src="./assets/img/5.jpg" alt="">
+		</div>
+	</div>
+	<button id="btn-left">left</button>
+	<button id="btn-right">right</button>
 	<script src="./assets/js/iconfont.js"></script>
 	<script src="./assets/js/data.js"></script>
-	<script src="./assets/robin.js" type="text/javascript"></script>
+	<script src="./assets/robin.js"></script>
+	<script src="./assets/js/index.js"></script>
 	<script>
+		window.onload = function () {
+			'use strict';
+			var lt = document.querySelector(".list");
+			var btn_left = document.getElementById("btn-left");
+			var btn_right = document.getElementById("btn-right");
+			var left = 0;
 
-		function test() {
-			console.log("test")
+			btn_right.addEventListener('click', () => {
+				if (left == 0) {
+					left = -2400;
+				}
+				else {
+					left += 600;
+				}
+				lt.style.left = left + 'px';
+
+			})
+
+			btn_left.addEventListener('click', () => {
+				if (left < -2000) {
+					left = 0;
+				}
+				else {
+					left += -600;
+				}
+				lt.style.left = left + 'px';
+			})
 		}
-		//locate funciton
-		(function () {
-			'use strict'
-			//global variable;
-			var cid = 0;
-
-			changePro(data, cid);
-			changeCity(data, cid)
-
-			function changePro(data, cid) {
-				var lc = document.querySelector(".location>.pro"),
-					html = '';
-				for (var i = 0; i < data.city.length; i++) {
-					if (i == cid) {
-						html += `<li class='active bb'>${data.city[i][0]}</li>`;
-					} else {
-						html += `<li >${data.city[i][0]}</li>`;
-					}
-				}
-				lc.innerHTML = html;
-			}
-
-			function changeCity(data, cid) {
-				var html2 = "";
-				for (var j = 1; j < data.city[cid].length; j++) {
-					html2 += `<li> ${data.city[cid][j]}</li>`
-				}
-				var city = document.querySelector(".location>.city");
-				city.innerHTML = html2;
-			}
-			var lies = document.querySelectorAll(".location>.pro>li");
-			lies.forEach((i, index) => {
-				i.addEventListener('click', (e) => {
-					Array.prototype.forEach.call(lies, (i) => {
-						r.removeClass(i, "active");
-						changeCity(data, index);
-					})
-					e.target.className = "active";
-				})
-			})
-
-			r.delegate(".city", "click", (e) => {
-				var ct = document.querySelector(".ct");
-				ct.innerHTML = e.target.innerHTML;
-			})
-
-			var search_btn = document.querySelector("#search");
-			search_btn.addEventListener("click", (e) => {
-				e.preventDefault();
-				var search_text = document.querySelector(".search-input>input");
-				if (!search_text.value) {
-					r.addClass(search_text, "empty-warnning");
-					setTimeout(() => {
-						r.removeClass(search_text, "empty-warnning");
-					}, 500)
-				}
-			})
-
-			function search() {
-
-			}
-			
-			//轮播图
-			var banner_item=document.querySelectorAll(".banner>li"),
-				bannerIndex=0;
-			setInterval((b)=>{
-				Array.prototype.forEach.call(banner_item,(i,index)=>{
-					if(index===bannerIndex){
-						banner_item.forEach((i)=>{
-							i.style.zIndex=0;
-						})
-						i.style.zIndex=1;
-					}
-				});
-				if(bannerIndex>=banner_item.length){
-					bannerIndex=0;
-				}
-				bannerIndex++;
-			},2000)
-
-
-
-			// var hv=document.querySelector(".testHover");
-			// hv.addEventListener('mouseover',(e)=>{
-			// 	var content=document.querySelector(".content");
-			// 	content.style.display="block";
-			// })
-			// hv.addEventListener('mouseout',(e)=>{
-			// 	var content=document.querySelector(".content");
-			// 	content.style.display="none";
-			// })
-
-			// var cts = document.querySelectorAll(".city>li");
-			// cts.forEach(function (v, i) {
-			// 	v.addEventListener('click', (e) => {
-			// 		var ct = document.querySelector(".ct");
-			// 		ct.innerHTML = e.target.innerHTML;
-			// 	})
-			// })   
-			// lc.addEventListener('click', () => {
-			// 	console.log("robin")
-			// })
-
-		})()
 	</script>
 </body>
 
